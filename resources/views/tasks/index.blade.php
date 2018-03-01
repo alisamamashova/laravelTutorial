@@ -22,9 +22,12 @@
 
             {{--@if($toDisplay)--}}
                 <ul>
-                    @foreach($owners as $owner)
-                        <li>{{ $owner->fullName }}</li>
-                    @endforeach
+
+                    @foreach($tasks as $task)
+                        <li>{{ $task->body}} ID: {{ $task->id }}
+                            <span id="{{$task->id}}" class="{{$task->id}}">hello</span>
+                            <a href="/tasks/{{$task->id}}">Узнать больше</a></li>
+                        @endforeach
                 </ul>
             {{--@endif--}}
 

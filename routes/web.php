@@ -13,7 +13,7 @@
 
 
 
-Route::get('/', function (){
+Route::get('/tasks', function (){
 
 //    $tasks = [
 //        'Провести друга на 148',
@@ -22,14 +22,16 @@ Route::get('/', function (){
 //        'Написать конспкт'
 //    ];
 
-//    $toDisplay = true;
+    $tasks = DB::table('tasks')->get();
 
-    $owners = DB::table('owners')->get();
+    return view('tasks.index', compact('tasks'));
+});
 
-    return view('welcome', compact('owners'
-//        'tasks'
-//        , 'toDisplay'
-        ));
+Route::get('/tasks/{id}', function($id){
+
+    $task = DB::table('tasks')->find($id);
+    return view('tasks.show', compact('task'));
+
 });
 
 
