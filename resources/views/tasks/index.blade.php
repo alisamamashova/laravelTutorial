@@ -14,23 +14,23 @@
         <!-- Styles -->
         <link rel="stylesheet" href="./css/welcome.css">
 
+
     </head>
     <body>
         <div>
-
             <h2>LARAVEL WORKS</h2>
-
-            {{--@if($toDisplay)--}}
-                <ul>
-
-                    @foreach($tasks as $task)
-                        <li>{{ $task->body}} ID: {{ $task->id }}
-                            <span id="{{$task->id}}" class="{{$task->id}}">hello</span>
-                            <a href="/tasks/{{$task->id}}">Узнать больше</a></li>
-                        @endforeach
-                </ul>
-            {{--@endif--}}
-
+            <ul>
+                @foreach($tasks as $task)
+                    <li>{{ $task->body}} ID: {{ $task->id }}
+                        <span>hello</span>
+                        <a href="/tasks/{{$task->id}}">Узнать больше</a>
+                        <button
+                        @if($task->completed)
+                            disabled
+                        @endif>Забронировать</button>
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </body>
 </html>
