@@ -1,6 +1,6 @@
 <?php
 
-use App\Task;
+//use App\Task;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +16,8 @@ Route::get('/', function () {
    return view('index');
 });
 
-Route::get('/tasks', function (){
+Route::get('/tasks', 'TasksController@index');
+//{
 
 //    $tasks = [
 //        'Провести друга на 148',
@@ -26,19 +27,18 @@ Route::get('/tasks', function (){
 //    ];
 
 //    $tasks = DB::table('tasks')->get();
-    $tasks = Task::all();
+   // $tasks = Task::all();
 
-    return view('tasks.index', compact('tasks'));
-});
+   // return view('tasks.index', compact('tasks'));
+//});
 
-Route::get('/tasks/{id}', function($id){
+Route::get('/tasks/{task}','TasksController@show');
+//{
 
 //    $task = DB::table('tasks')->find($id);
-    $task = Task::find($id);
-    return view('tasks.show', compact('task'));
-
-
-});
+//    $task = Task::find($id);
+//    return view('tasks.show', compact('task'));
+//});
 
 
 Route::get('/about', function() {
