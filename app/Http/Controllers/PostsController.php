@@ -9,23 +9,24 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = App\Post::all();
+        return view('posts.index_p');
+//        $posts = App\Post::all();
 
 //        dd($posts);
-        return view('welcome', compact('posts'));
+//        return view('index', compact('posts'));
     }
 
-    public function store()
-    {
-        $this->validate(request(), [
-            'title' => 'required',
-            'body' => 'required'
-        ]);
-
-        $post = App\Post::create(request(['title','body']));
-
-        $post->save();
-
-        return redirect('/');
-    }
+//    public function store()
+//    {
+//        $this->validate(request(), [
+//            'title' => 'required',
+//            'body' => 'required'
+//        ]);
+//
+//        $post = App\Post::create(request(['title','body']));
+//
+//        $post->save();
+//
+//        return redirect('/');
+//    }
 }
