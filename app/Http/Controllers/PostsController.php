@@ -16,14 +16,12 @@ class PostsController extends Controller
     }
 
     public function store()
-    {   //dd(request(['title', 'body'])); //вывод заголовка и содержимого поста
-
-//        $this->validate(request(), [
-//            'title' => 'required',
-//            'body' => 'required'
-//        ]);
-//
-        $post = Post::create(request(['title','body'])); //вместо CREATE A NEW POST USING THE REQUEST DATA $post = new Post;  $post->title =request('title'); $post->body = request('body'); SAVE IT TO THE DATABASE  $post->save();
+    {
+        $this->validate(request(),[
+            'title' => 'required|min:5', //заголовок не менее 5 символов
+            'body' => 'required'
+        ]);
+        Post::create(request(['title','body']));
 
         //And then REDIRECT TO THE HOME PAGE
         return redirect('/');
