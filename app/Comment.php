@@ -6,7 +6,12 @@ namespace App;
 
 class Comment extends Model
 {
+    protected $fillable = ['body','post_id'];
     //$comment->post;
+    public static function create($array)
+    {
+    }
+
     public function post()
     {
         return $this->belongsTo(Post::class);
