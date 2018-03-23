@@ -14,12 +14,12 @@ class Post extends Model
     public function addComment($body)
     {
         $this->comments()->create(compact('body'));
-//        Comment::create ([
-//           'body'=>$body,
-//            'post_id'=>$this->id
-//        ]);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     protected $fillable = ['title', 'body'];
     //protected $guarded = ['user_id'];
 }
