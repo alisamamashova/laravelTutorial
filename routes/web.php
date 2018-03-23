@@ -22,3 +22,6 @@ Route::get('/about', function() {
 Route::get('/alisa', function (){
     return view('alisa');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
